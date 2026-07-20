@@ -11,6 +11,15 @@ prompts and scripts we used to produce them.
 
 ---
 
+## How might we
+
+> **HOW MIGHT WE** help teachers to understand their student's learning progress based
+> on out-of-class work
+>
+> **FOR** high-school teachers at private schools in Mexico
+>
+> **SO THAT** they can catch learning gaps early and address accordingly
+
 ## The problem we chose
 
 > High school teachers who assign out-of-class work **struggle with** students bypassing the
