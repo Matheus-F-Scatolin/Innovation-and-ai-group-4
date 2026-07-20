@@ -41,6 +41,17 @@
     [~200k students took RIMA 2026](https://boletines.guanajuato.gob.mx/2026/05/19/participan-cerca-de-200-mil-estudiantes-de-preparatoria-en-prueba-rima-2026/),
     [Mejores prepas ranking](https://mextudia.com/cuales-son-las-mejores-preparatorias-en-mexico/)
 
+### How Might We (problem framing) — chosen by the group
+
+> **HOW MIGHT WE** help teachers to understand their student's learning progress based
+> on out-of-class work
+>
+> **FOR** high-school teachers at private schools in Mexico
+>
+> **SO THAT** they can catch learning gaps early and address accordingly
+
+Also recorded in the [README](README.md).
+
 ### Key assumptions in this block
 
 - **A1:** Teachers actually experience P1 weekly, not occasionally.
