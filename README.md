@@ -41,8 +41,10 @@ The group converged on a **student knowledge-assessment platform**:
 - **Business model:** school-level **subscription tiered by school size** (number of
   students) — the school is the buyer, consistent with directors holding the budget.
 
-Full draft, added assumptions (A5–A8), and open questions live in the
-[Lean Canvas](lean-canvas.md) (Blocks 4 and 6).
+The full **Lean Canvas is now complete** (coached 2026-07-20): Blocks 1–6, 8, 9 closed,
+Block 7 (Cost Structure) excluded by team decision, 19 assumptions logged (A1–A19), and
+a synthesis with the riskiest assumptions and a 2-week validation plan — all in the
+[Lean Canvas](lean-canvas.md).
 
 To map the problem from every angle, we built **nine personas** across three groups:
 
