@@ -29,6 +29,21 @@ prompts and scripts we used to produce them.
 **Market scope (team decision):** Mexico first — good private *preparatorias / bachilleratos*
 (ages 15–18), not necessarily elite, reached through a teammate's network.
 
+## Solution direction (converged 2026-07-20, not validated)
+
+The group converged on a **student knowledge-assessment platform**:
+
+- **Teachers upload their course documents** so the platform knows what each class is
+  actually teaching.
+- The platform generates **varied assessment types designed to mitigate AI doing the
+  work** — formats where a chatbot can't produce a passing answer without the student's
+  real comprehension.
+- **Business model:** school-level **subscription tiered by school size** (number of
+  students) — the school is the buyer, consistent with directors holding the budget.
+
+Full draft, added assumptions (A5–A8), and open questions live in the
+[Lean Canvas](lean-canvas.md) (Blocks 4 and 6).
+
 To map the problem from every angle, we built **nine personas** across three groups:
 
 | Group | Role in the problem | Personas |

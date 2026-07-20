@@ -1,8 +1,10 @@
 # Lean Canvas — Working Document (Group 4)
 
 > **Status:** Block 1 of 9 (Problem) complete. Blocks 2–9 pending.
+> Group has converged on draft directions for **Solution (Block 4)** and
+> **Revenue Streams (Block 6)** — recorded below, not yet coached/validated.
 > Coaching session run with the prompt in [`prompts/lean-canvas-prompt.md`](prompts/lean-canvas-prompt.md).
-> Last updated: 2026-07-17.
+> Last updated: 2026-07-20.
 
 ---
 
@@ -90,12 +92,45 @@ through a teammate's network.
 
 ## 3. Unique Value Proposition — ⏳ pending
 
-## 4. Solution — ⏳ pending
+## 4. Solution — 📝 draft (group-converged 2026-07-20, not yet coached)
+
+**Converged idea (from group chat):** a platform where students assess their own
+knowledge of what is actually being taught in their classes.
+
+- **Teacher side:** teachers upload their course documents (syllabi, slides, readings,
+  assignment briefs) so the platform knows what each class covers.
+- **Assessment side:** from that material, the platform generates **varied assessment
+  types designed to mitigate AI doing the work for the student** — formats where pasting
+  the task into a chatbot doesn't produce a passing answer without real comprehension.
+- **Outcome:** teachers get a reliable read on each student's learning progress from
+  out-of-class work (closes the loop with P1/P2 and the group's How Might We).
+
+### Assumptions this draft adds
+
+- **A5:** Teachers are willing to upload their course materials to a third-party
+  platform (privacy, IP, and effort concerns).
+- **A6:** AI-resistant assessment formats exist that (a) students can't trivially
+  outsource to AI and (b) don't recreate P2's cost by demanding lots of teacher time.
+- **A7:** Students will engage with the assessments honestly enough for the progress
+  signal to be meaningful.
 
 ## 5. Channels — ⏳ pending
 
-## 6. Revenue Streams — ⏳ pending
-Known constraint from Block 1: teachers don't control budget; schools do.
+## 6. Revenue Streams — 📝 draft (group-converged 2026-07-20, not yet coached)
+
+**Converged model (from group chat):** **school-level subscription, tiered by school
+size (number of students).** The school is the paying customer (fits the Block 1
+constraint: teachers don't control budget; schools do — director = buyer).
+
+Open questions for the coaching session: price points per tier, tier boundaries,
+annual vs. monthly billing, and whether a free/pilot tier is needed to get past
+edtech-burned skeptics (the Patricia archetype).
+
+### Assumptions this draft adds
+
+- **A8:** Directors will pay a recurring per-school subscription (sized by enrollment)
+  for better visibility into learning progress, rather than expecting a free tool or a
+  one-off purchase.
 
 ## 7. Cost Structure — ⏳ pending
 
@@ -147,10 +182,23 @@ KEY DECISIONS ALREADY MADE (do not relitigate):
   Reforma/El Norte "Mejores Prepas" peer-opinion ranking and university admission
   outcomes (Tec, UNAM, IPN). P3 is built on the admission-outcomes chain.
 
-ASSUMPTIONS LOGGED (A1–A4):
+DRAFTS ALREADY CONVERGED BY THE GROUP (recorded, NOT yet coached — challenge them when
+their blocks come up, but don't pretend they don't exist):
+- Solution (Block 4) draft: a platform where students assess their knowledge; teachers
+  upload their course documents so the platform knows what each class teaches; the
+  platform generates varied assessment types designed so AI can't do the work for the
+  student.
+- Revenue Streams (Block 6) draft: school-level subscription, tiered by school size
+  (number of students); the school/director is the paying customer.
+
+ASSUMPTIONS LOGGED (A1–A8):
 A1 teachers hit P1 weekly; A2 the in-class workaround feels costly, not fine;
 A3 directors connect AI homework to admission results; A4 "big problem" survives an
-interview where we don't mention AI first.
+interview where we don't mention AI first; A5 teachers will upload course materials to
+a third-party platform; A6 AI-resistant assessment formats exist that don't recreate
+P2's time cost; A7 students engage honestly enough for the progress signal to mean
+something; A8 directors will pay a recurring per-school subscription sized by
+enrollment.
 
 EVIDENCE SO FAR: one teacher in our network (Emiliano) says it's a big problem — n=1,
 weak signal only. Everything else is assumption. Kill criterion: if teachers say
