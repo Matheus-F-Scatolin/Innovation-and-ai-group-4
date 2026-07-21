@@ -46,6 +46,23 @@ Block 7 (Cost Structure) excluded by team decision, 19 assumptions logged (A1–
 a synthesis with the riskiest assumptions and a 2-week validation plan — all in the
 [Lean Canvas](lean-canvas.md).
 
+## Prototype — Demo Day voice session
+
+The [`demo/`](demo/) folder holds the **working Demo Day prototype**: a student's
+AI-tutor homework review on the Tequila Crisis. The tutor asks three oral questions
+(recorded by the teacher), a voice-reactive orb listens to the student's spoken
+answers, and a "personalized review" video of the teacher's AI avatar closes the
+session. Static HTML/JS — fully offline, zero dependencies, zero API keys:
+
+```bash
+cd demo && python3 -m http.server 8000   # then open localhost:8000 in Chrome
+```
+
+See [`demo/README.md`](demo/README.md) for the flow, controls, and how to edit
+the content (everything lives in `demo/config.js`).
+
+---
+
 To map the problem from every angle, we built **nine personas** across three groups:
 
 | Group | Role in the problem | Personas |
@@ -69,6 +86,7 @@ in realistic ways. The document ends with a **synthesis** of how the personas in
 | [`personas.md`](personas.md) | **The source of truth.** The full write-up: the three schools, all nine personas (snapshot, context, goals, frustrations, behavior, tech/influence, a quote, assumptions to validate, and an empathy map each), and the closing synthesis + interview plan. |
 | [`personas.html`](personas.html) | **Interactive view of `personas.md`.** A single, self-contained web page that works like a small site: a **home index** of persona cards — pick one to open its full **one-pager** (snapshot, quote, goals, frustrations, behavior, assumptions, and a six-quadrant empathy map), then use the **back button** (or the browser Back) to return home. Also has a Schools page, a Synthesis page, group filtering, live search, and light/dark ("chalkboard") themes. Open it in any browser; nothing to install. |
 | [`personas.pdf`](personas.pdf) | **Print/share view of `personas.md`** — the same content rendered as a card-style persona board for slides and handouts. |
+| [`demo/`](demo/) | **Demo Day prototype** — the offline voice-session mock described above ([its README](demo/README.md) has the full run/edit guide). |
 
 ### Prompts — how the content was generated
 
