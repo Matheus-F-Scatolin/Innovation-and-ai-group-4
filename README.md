@@ -51,8 +51,11 @@ a synthesis with the riskiest assumptions and a 2-week validation plan — all i
 The [`demo/`](demo/) folder holds the **working Demo Day prototype**: a student's
 AI-tutor homework review on the Tequila Crisis. The tutor asks three oral questions
 (recorded by the teacher), a voice-reactive orb listens to the student's spoken
-answers, and a "personalized review" video of the teacher's AI avatar closes the
-session. Static HTML/JS — fully offline, zero dependencies, zero API keys:
+answers — the third one is answered wrong on purpose — and an analysis beat flags
+the gap live. A "personalized review" video of the teacher's AI avatar addresses it,
+then the story widens: the student's honest summary and **Prof. Emiliano's teacher
+dashboard** with the class's per-topic mastery. Static HTML/JS — fully offline,
+zero dependencies, zero API keys:
 
 ```bash
 cd demo && python3 -m http.server 8000   # then open localhost:8000 in Chrome
