@@ -14,7 +14,6 @@
     <h1 id="topic-title"></h1>
     <p class="subtitle" id="homework-intro"></p>
     <button class="btn" id="start-btn">Start review</button>
-    <p class="hint">or press <kbd>Space</kbd></p>
   </section>
 
   <!-- 2. Voice session -->
@@ -29,9 +28,12 @@
       <div class="orb" id="orb"></div>
     </div>
 
-    <p class="question-text" id="question-text"></p>
+    <div class="qa-slot">
+      <p class="question-text" id="question-text"></p>
+      <ul class="insights" id="insights"></ul>
+      <div class="gen-loader" id="gen-loader"><span class="bar"></span></div>
+    </div>
     <div class="progress" id="progress"></div>
-    <p class="hint" id="hint"></p>
   </section>
 
   <!-- 3. Personalized review video (teacher's AI avatar, Spanish w/ English captions) -->
@@ -42,16 +44,33 @@
       <source type="video/mp4" />
       <track kind="subtitles" srclang="en" label="English" default />
     </video>
-    <p class="hint">Press <kbd>Space</kbd> to continue</p>
+    <div class="feedback" id="feedback">
+      <p class="feedback-prompt" id="feedback-prompt"></p>
+      <div class="feedback-btns">
+        <button class="thumb" id="thumb-up" aria-label="Helpful">👍</button>
+        <button class="thumb" id="thumb-down" aria-label="Not helpful">👎</button>
+      </div>
+    </div>
   </section>
 
-  <!-- 4. End screen -->
+  <!-- 4. Student end screen -->
   <section id="screen-done" class="screen">
     <div class="check">✓</div>
     <h1 id="summary-title"></h1>
     <p class="subtitle" id="summary-message"></p>
     <ul class="topics" id="summary-topics"></ul>
     <p class="footer-note" id="summary-footer"></p>
+  </section>
+
+  <!-- 5. Teacher dashboard -->
+  <section id="screen-teacher" class="screen">
+    <div class="eyebrow" id="teacher-eyebrow"></div>
+    <h1 id="teacher-title"></h1>
+    <p class="subtitle" id="teacher-subtitle"></p>
+    <div class="dash-card">
+      <table class="dash-table" id="teacher-table"></table>
+    </div>
+    <p class="dash-insight" id="teacher-insight"></p>
   </section>
 
   <script src="config.js"></script>
