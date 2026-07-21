@@ -64,6 +64,21 @@ cd demo && python3 -m http.server 8000   # then open localhost:8000 in Chrome
 See [`demo/README.md`](demo/README.md) for the flow, controls, and how to edit
 the content (everything lives in `demo/config.js`).
 
+The [`demo-teacher/`](demo-teacher/) folder holds the **teacher-side companion
+demo** — the authoring flow presented *before* the student one: Prof. Emiliano
+uploads his class materials (class recording, book chapter, slides), speaks the
+key takeaways live (same voice-reactive orb), and reviews & approves the
+generated homework package — brief, oral questions in his voice, per-question
+answer keys, topic map, and the avatar-ready card — before it ships to Grupo
+5°B. Same stack, fully offline:
+
+```bash
+cd demo-teacher && python3 -m http.server 8001   # then open localhost:8001 in Chrome
+```
+
+See [`demo-teacher/README.md`](demo-teacher/README.md) for the flow and the
+presenter script.
+
 ---
 
 To map the problem from every angle, we built **nine personas** across three groups:
@@ -89,7 +104,8 @@ in realistic ways. The document ends with a **synthesis** of how the personas in
 | [`personas.md`](personas.md) | **The source of truth.** The full write-up: the three schools, all nine personas (snapshot, context, goals, frustrations, behavior, tech/influence, a quote, assumptions to validate, and an empathy map each), and the closing synthesis + interview plan. |
 | [`personas.html`](personas.html) | **Interactive view of `personas.md`.** A single, self-contained web page that works like a small site: a **home index** of persona cards — pick one to open its full **one-pager** (snapshot, quote, goals, frustrations, behavior, assumptions, and a six-quadrant empathy map), then use the **back button** (or the browser Back) to return home. Also has a Schools page, a Synthesis page, group filtering, live search, and light/dark ("chalkboard") themes. Open it in any browser; nothing to install. |
 | [`personas.pdf`](personas.pdf) | **Print/share view of `personas.md`** — the same content rendered as a card-style persona board for slides and handouts. |
-| [`demo/`](demo/) | **Demo Day prototype** — the offline voice-session mock described above ([its README](demo/README.md) has the full run/edit guide). |
+| [`demo/`](demo/) | **Demo Day prototype (student)** — the offline voice-session mock described above ([its README](demo/README.md) has the full run/edit guide). |
+| [`demo-teacher/`](demo-teacher/) | **Demo Day prototype (teacher)** — the authoring flow: upload class materials, speak the takeaways, review & approve the generated homework package ([its README](demo-teacher/README.md)). |
 
 ### Prompts — how the content was generated
 
