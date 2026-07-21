@@ -1,1 +1,7 @@
 .DS_Store
+
+# Raw recordings (iPhone HEVC video, placeholder audio) — web-ready copies live in demo/assets/
+media-originals/
+
+# Local Claude Code config (machine-specific paths)
+.claude/

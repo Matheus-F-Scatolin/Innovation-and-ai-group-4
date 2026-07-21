@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-0: #07090f;
+  --bg-1: #0d1220;
+  --text: #e8ecf4;
+  --text-dim: #8a93a6;
+  --accent: #6ea8ff;
+  --accent-soft: rgba(110, 168, 255, 0.35);
+  --listen: #7fe3b0;
+  --listen-soft: rgba(127, 227, 176, 0.35);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(120% 120% at 50% 0%, var(--bg-1) 0%, var(--bg-0) 70%);
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.screen.active {
+  display: flex;
+  animation: fadein 0.5s ease;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------- Start screen ---------- */
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  max-width: 34rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.9rem 2.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0b0e14;
+  background: var(--text);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Video screen ---------- */
+
+#screen-video video {
+  height: min(68vh, 620px);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  background: #000;
+}
+
+#screen-video video::cue {
+  font-size: 1.05rem;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* ---------- Voice screen ---------- */
+
+#screen-voice {
+  justify-content: space-between;
+  padding: 3.5rem 2rem 2.5rem;
+}
+
+.voice-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.voice-header .topic {
+  font-weight: 600;
+}
+
+.voice-header .status {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.orb-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+}
+
+.orb {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #dceaff 0%, #9cc2ff 32%, #4f86e8 68%, #2a4f9e 100%);
+  box-shadow:
+    0 0 60px var(--accent-soft),
+    0 0 140px var(--accent-soft);
+  transition: background 0.6s ease, box-shadow 0.6s ease;
+  will-change: transform;
+}
+
+.orb.listening {
+  background: radial-gradient(circle at 32% 30%, #e2fff0 0%, #a5ecc7 32%, #4ec98d 68%, #1f7a52 100%);
+  box-shadow:
+    0 0 60px var(--listen-soft),
+    0 0 140px var(--listen-soft);
+}
+
+.orb-halo {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  filter: blur(50px);
+  transition: background 0.6s ease;
+  will-change: transform;
+}
+
+.orb-halo.listening {
+  background: var(--listen-soft);
+}
+
+.question-text {
+  min-height: 4.2em;
+  max-width: 40rem;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.progress {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 0.6rem;
+}
+
+.progress .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background 0.3s ease;
+}
+
+.progress .dot.current {
+  background: var(--text);
+}
+
+.progress .dot.done {
+  background: var(--accent);
+}
+
+.hint {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85em;
+}
+
+/* ---------- End screen ---------- */
+
+.check {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background: rgba(127, 227, 176, 0.15);
+  color: var(--listen);
+}
+
+.topics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--text-dim);
+}
+
+.topics li::before {
+  content: "✓  ";
+  color: var(--listen);
+}
+
+.footer-note {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
