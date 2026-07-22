@@ -7,14 +7,14 @@
 
 const DASH_CONFIG = {
   teacher: "Prof. Emiliano",
-  group: "Grupo 5°B",
+  group: "Group 5B",
   course: "Economic History of Latin America",
 
   // ---------- 1. Assignment list (landing) ----------
   assignments: {
     eyebrow: "Teacher dashboard",
-    title: 'Prof. Emiliano — <span class="hl">Grupo 5°B</span>.',
-    subtitle: "Historia Económica · 31 students · Click an assignment to see results.",
+    title: 'Prof. Emiliano — <span class="hl">Group 5B</span>.',
+    subtitle: "Economic History · 31 students · Click an assignment to see results.",
     hint: "This demo follows the Tequila Crisis — open that one.",
     // The first card is the scripted path; the others show past
     // results and the trends card opens the trends view.
@@ -54,7 +54,7 @@ const DASH_CONFIG = {
   classView: {
     eyebrow: "Homework review",
     title: 'The <span class="hl">Tequila</span> Crisis.',
-    subtitle: "Grupo 5°B · 28 of 31 students completed · avg. session 9 min",
+    subtitle: "Group 5B · 28 of 31 students completed · avg. session 9 min",
     hint: "This demo follows Alejo — click his row.",
     columns: ["Daily-life consequences", "Rescue package", "Tesobonos & debt"],
     students: [
@@ -94,7 +94,7 @@ const DASH_CONFIG = {
     eyebrow: "Student profile",
     name: "Alejo Ramírez",
     initials: "AR",
-    sub: "Grupo 5°B · Historia Económica · last session yesterday, 7:42 pm",
+    sub: "Group 5B · Economic History · last session yesterday, 7:42 pm",
     stats: [
       { value: "12", label: "sessions completed" },
       { value: "9 min", label: "avg. session length" },
@@ -134,7 +134,7 @@ const DASH_CONFIG = {
   // ---------- 4. Class trends ----------
   trendsView: {
     eyebrow: "Class trends",
-    title: 'Grupo 5°B — <span class="hl">three</span> assignments.',
+    title: 'Group 5B — <span class="hl">three</span> assignments.',
     subtitle: "Average topic mastery per assignment, from the tutor sessions.",
     bars: [
       { label: "The Lost Decade", sub: "two weeks ago", pct: 64 },

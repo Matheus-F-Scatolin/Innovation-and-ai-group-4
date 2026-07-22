@@ -19,13 +19,13 @@ Open **http://localhost:8001** in **Chrome** and allow microphone access
 ## Demo flow (Space bar drives everything)
 
 1. **Class picker** — Prof. Emiliano's class groups. Only the scripted
-   class is live (**Grupo 5°B**); the other cards nudge with a hint if
+   class is live (**Group 5B**); the other cards nudge with a hint if
    clicked. `Space` auto-picks it. (The topic comes from the materials
    uploaded next, so there's no topic step here.)
 2. **Start screen** — "New homework review". `Space` (or click) to begin.
 2. **Upload beat** — a drop zone. Each `Space` press "drops" the next
    pre-named file in with a short upload progress: the class recording
-   (Clase 12, 42 min), the book chapter PDF, and the class slides.
+   (Class 12, 42 min), the book chapter PDF, and the class slides.
    No real file dialogs on stage. After the third file a **Continue**
    button fades in.
 3. **Takeaways beat** — the orb turns green and listens: speak the key
@@ -47,9 +47,9 @@ Open **http://localhost:8001** in **Chrome** and allow microphone access
    - the **topic map** (the 3 chips that become the dashboard columns),
    - the **avatar-ready card** (personalized review videos per student).
 
-   Pressing `Space` — or clicking **"Approve & assign to Grupo 5°B"** —
+   Pressing `Space` — or clicking **"Approve & assign to Group 5B"** —
    approves it.
-7. **Assigned confirmation** — "Assigned to Grupo 5°B · 31 students will
+7. **Assigned confirmation** — "Assigned to Group 5B · 31 students will
    get the voice review… Results land in your dashboard." Final screen;
    segue into the student demo.
 

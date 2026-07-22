@@ -14,22 +14,22 @@ const DEMO_CONFIG = {
 
   // ---------- 0. Class / topic picker ----------
   // Two quick steps before the homework intro: pick a subject, then
-  // a topic. Only the scripted path (Historia → Tequila Crisis) is
+  // a topic. Only the scripted path (Economic History → Tequila Crisis) is
   // live; the other cards nudge and show the hint. Space auto-picks
   // the live card, so the stage flow stays foolproof.
   picker: {
     subjects: {
       eyebrow: "Your classes",
       title: 'What are we <span class="hl">reviewing</span> today?',
-      hint: "This demo follows Historia — pick that one.",
+      hint: "This demo follows Economic History — pick that one.",
       items: [
-        { name: "Historia Económica", sub: "Prof. Emiliano", enabled: true },
-        { name: "Matemáticas", sub: "Prof. Rivas", enabled: false },
-        { name: "Ciencias Naturales", sub: "Prof. Ortega", enabled: false },
+        { name: "Economic History", sub: "Prof. Emiliano", enabled: true },
+        { name: "Mathematics", sub: "Prof. Rivas", enabled: false },
+        { name: "Natural Sciences", sub: "Prof. Ortega", enabled: false },
       ],
     },
     topics: {
-      eyebrow: "Historia Económica",
+      eyebrow: "Economic History",
       title: 'Pick a <span class="hl">topic</span>.',
       hint: "This demo follows the Tequila Crisis — pick that one.",
       items: [

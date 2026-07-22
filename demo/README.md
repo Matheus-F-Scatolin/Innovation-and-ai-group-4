@@ -14,8 +14,8 @@ Open **http://localhost:8000** in **Chrome** and allow microphone access
 
 ## Demo flow (Space bar drives everything)
 
-1. **Class & topic picker** — Alejo's classes, then Historia's topics.
-   Only the scripted path is live (**Historia Económica → The Tequila
+1. **Class & topic picker** — Alejo's classes, then Economic History's topics.
+   Only the scripted path is live (**Economic History → The Tequila
    Crisis**); the other cards nudge with a hint if clicked. `Space`
    auto-picks the live card on each step, so two presses get you
    through both.
