@@ -8,6 +8,9 @@ const DEMO_CONFIG = {
   teacher: "Prof. Emiliano",
   course: "Economic History of Latin America",
   topic: "The Tequila Crisis",
+  // Start-screen headline (rendered as HTML): navy with one yellow
+  // highlight word, per the brand headline pattern.
+  topicHeadline: 'The <span class="hl">Tequila</span> Crisis.',
 
   // Shown on the start screen (the "homework starts with one or
   // two sentences" part of the flow).
@@ -72,7 +75,7 @@ const DEMO_CONFIG = {
   // Student end screen — honest, not all-green: two topics solid,
   // the flagged one already reviewed with the tutor.
   summary: {
-    title: "Session complete",
+    title: 'Session <span class="hl">complete</span>.',
     message:
       "Good session, Alejo. Two topics are solid — your tutor just reviewed the one that needs work.",
     topics: [
@@ -86,7 +89,7 @@ const DEMO_CONFIG = {
   // What the teacher sees after the session (next beat in the flow).
   teacherView: {
     eyebrow: "Teacher dashboard",
-    title: "Prof. Emiliano — Grupo 5°B",
+    title: 'Prof. Emiliano — <span class="hl">Grupo 5°B</span>.',
     subtitle: "Homework review: The Tequila Crisis · 28 of 31 students completed",
     columns: ["Daily-life consequences", "Rescue package", "Tesobonos & debt"],
     students: [

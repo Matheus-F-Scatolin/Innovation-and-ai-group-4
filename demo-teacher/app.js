@@ -239,7 +239,7 @@ function showPackage() {
   state = "package";
 
   // Re-trigger the staggered card animation on every entry.
-  const cards = screens.package.querySelectorAll(".pkg-card, .btn.approve");
+  const cards = screens.package.querySelectorAll(".pkg-card, .pkg-actions .btn");
   cards.forEach((c) => {
     c.style.animation = "none";
     void c.offsetWidth; // reflow to restart the CSS animation
@@ -397,11 +397,13 @@ function hydrate() {
   const cfg = TEACHER_CONFIG;
 
   $("#course").textContent = cfg.course;
-  $("#topic-title").textContent = cfg.upload.title;
+  // Headlines carry the brand's one-yellow-word markup (config-owned
+  // trusted strings), so they hydrate as HTML.
+  $("#topic-title").innerHTML = cfg.upload.title;
   $("#intro").textContent = cfg.intro;
 
   $("#upload-eyebrow").textContent = cfg.teacher + " · " + cfg.group;
-  $("#upload-title").textContent = cfg.topic;
+  $("#upload-title").innerHTML = cfg.topicHeadline;
   $("#drop-hint").textContent = cfg.upload.hint;
   $("#ready-note").textContent = cfg.upload.ready;
   continueBtn.textContent = cfg.upload.continueLabel;
@@ -410,7 +412,7 @@ function hydrate() {
 
   const pkg = cfg.package;
   $("#pkg-eyebrow").textContent = pkg.eyebrow;
-  $("#pkg-title").textContent = pkg.title;
+  $("#pkg-title").innerHTML = pkg.title;
   $("#pkg-subtitle").textContent = pkg.subtitle;
   $("#brief-label").textContent = pkg.brief.label;
   $("#brief-text").textContent = pkg.brief.text;
@@ -458,9 +460,10 @@ function hydrate() {
 
   $("#avatar-label").textContent = pkg.avatar.label;
   $("#avatar-text").textContent = pkg.avatar.text;
+  $("#review-btn").textContent = pkg.reviewLabel;
   approveBtn.textContent = pkg.approveLabel;
 
-  $("#assigned-title").textContent = cfg.assigned.title;
+  $("#assigned-title").innerHTML = cfg.assigned.title;
   $("#assigned-message").textContent = cfg.assigned.message;
   $("#assigned-footer").textContent = cfg.assigned.footer;
 }

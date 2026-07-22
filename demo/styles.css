@@ -5,18 +5,39 @@
 }
 
 :root {
-  --bg-0: #07090f;
-  --bg-1: #0d1220;
-  --text: #e8ecf4;
-  --text-dim: #8a93a6;
-  --accent: #6ea8ff;
-  --accent-soft: rgba(110, 168, 255, 0.35);
-  --listen: #7fe3b0;
-  --listen-soft: rgba(127, 227, 176, 0.35);
-  --warn: #ffcf7d;
-  --warn-soft: rgba(255, 207, 125, 0.16);
-  --card: rgba(255, 255, 255, 0.045);
-  --card-border: rgba(255, 255, 255, 0.09);
+  /* Brand (DESIGN.md §2) */
+  --brand-blue: #2540A5;
+  --brand-gradient: linear-gradient(135deg, #1E7BF0 0%, #35A8E0 100%);
+  --navy-900: #132A5C;
+  --navy-700: #1E3A8A;
+  --yellow-500: #F5B90F;
+  --sky-500: #35A8E0;
+  --sky-300: #7CC5EA;
+  --blue-600: #2F6FE4;
+  --green-600: #1E9E6E;
+  --red-500: #D94F3D;
+  --amber-700: #9A6B08;
+  --purple-500: #7C5CBF;
+  --teal-600: #178A80;
+  --bg-tint-blue: #EFF5FC;
+  --bg-tint-green: #EAF6F0;
+  --shadow-card: 0 2px 8px rgba(19, 42, 92, 0.06), 0 12px 32px rgba(19, 42, 92, 0.08);
+  --shadow-lift: 0 4px 12px rgba(19, 42, 92, 0.10), 0 20px 48px rgba(19, 42, 92, 0.12);
+
+  /* Legacy tokens, remapped to the light theme (app.js untouched) */
+  --bg-0: #F4F6F9;
+  --bg-1: #FFFFFF;
+  --text: #1A2233;
+  --text-dim: #5B6472;
+  --border: #E3E8EF;
+  --accent: #35A8E0;
+  --accent-soft: rgba(53, 168, 224, 0.25);
+  --listen: #1E9E6E;
+  --listen-soft: rgba(30, 158, 110, 0.22);
+  --warn: #F5B90F;
+  --warn-soft: rgba(245, 185, 15, 0.15);
+  --card: #FFFFFF;
+  --card-border: #E3E8EF;
 }
 
 html,
@@ -25,10 +46,32 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   color: var(--text);
-  background: radial-gradient(120% 120% at 50% 0%, var(--bg-1) 0%, var(--bg-0) 70%);
+  /* Near-white base with the deck's faint diagonal panel texture */
+  background:
+    linear-gradient(160deg, #FFFFFFD9 0%, #FFFFFF00 45%),
+    linear-gradient(340deg, #EDF1F7 0%, rgba(237, 241, 247, 0) 40%),
+    var(--bg-0);
   overflow: hidden;
+}
+
+/* ---------- Brand header ---------- */
+
+.brand-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1.4rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.brand-logo {
+  height: 46px;
 }
 
 .screen {
@@ -56,20 +99,28 @@ body {
 /* ---------- Start screen ---------- */
 
 .eyebrow {
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--sky-500);
 }
 
 h1 {
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--navy-900);
+}
+
+.hl {
+  color: var(--yellow-500);
 }
 
 .subtitle {
   max-width: 34rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.55;
   color: var(--text-dim);
 }
 
@@ -77,45 +128,77 @@ h1 {
   margin-top: 1rem;
   padding: 0.9rem 2.6rem;
   font-size: 1rem;
-  font-weight: 600;
-  color: #0b0e14;
-  background: var(--text);
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--sky-500);
   border: none;
-  border-radius: 999px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.18);
+  background: #2b98cf;
+  box-shadow: var(--shadow-lift);
 }
 
 /* ---------- Video screen ---------- */
 
+/* Product-style layout: copy (and, later, the feedback ask) on the
+   left, the student's phone with the avatar video on the right. */
+
+.video-layout {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  max-width: 1020px;
+  text-align: left;
+}
+
+.video-copy {
+  flex: 1;
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.video-lead {
+  max-width: 26rem;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--navy-900);
+}
+
+/* Soft rounded square for the avatar video (shown at its native,
+   near-square aspect). */
+
+.phone {
+  flex: none;
+}
+
 #screen-video video {
-  height: min(68vh, 620px);
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: block;
+  height: min(68vh, 600px);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lift);
   background: #000;
 }
 
 #screen-video video::cue {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   background: rgba(0, 0, 0, 0.65);
-}
-
-/* Make room for the feedback prompt once the video freezes. */
-
-#screen-video.feedback-open video {
-  height: min(56vh, 520px);
 }
 
 .feedback {
   display: none;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.9rem;
+  margin-top: 0.4rem;
 }
 
 .feedback.active {
@@ -124,7 +207,7 @@ h1 {
 }
 
 .feedback-prompt {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 500;
 }
 
@@ -138,8 +221,9 @@ h1 {
   height: 58px;
   font-size: 1.5rem;
   border-radius: 50%;
-  border: 1px solid var(--card-border);
-  background: var(--card);
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
   transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
 }
@@ -149,15 +233,15 @@ h1 {
 }
 
 .thumb.selected {
-  background: rgba(127, 227, 176, 0.18);
-  border-color: var(--listen);
+  background: var(--bg-tint-green);
+  border-color: var(--green-600);
 }
 
 /* ---------- Voice screen ---------- */
 
 #screen-voice {
   justify-content: space-between;
-  padding: 3.5rem 2rem 2.5rem;
+  padding: 4.6rem 2rem 2.5rem;
 }
 
 .voice-header {
@@ -167,12 +251,13 @@ h1 {
 }
 
 .voice-header .topic {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--navy-900);
 }
 
 .voice-header .status {
   color: var(--text-dim);
-  font-size: 0.9rem;
+  font-size: 1rem;
   min-height: 1.2em;
   transition: color 0.3s ease;
 }
@@ -186,39 +271,109 @@ h1 {
   width: 100%;
 }
 
+/* Sparkle accents echoing the logo's stars (DESIGN.md §5) */
+
+.orb-stage::before,
+.orb-stage::after {
+  position: absolute;
+  color: var(--sky-500);
+  pointer-events: none;
+}
+
+.orb-stage::before {
+  content: "✦";
+  font-size: 1.5rem;
+  top: calc(50% - 138px);
+  left: calc(50% + 96px);
+}
+
+.orb-stage::after {
+  content: "✦";
+  font-size: 0.9rem;
+  top: calc(50% - 104px);
+  left: calc(50% + 134px);
+  color: var(--sky-300);
+}
+
+/* Glossy brand-gradient sphere — the screen's one gradient moment.
+   A slow conic swirl (::before) gives it a liquid feel and a soft
+   specular highlight (::after) the 3D volume; app.js keeps driving
+   the transform scaling. */
+
 .orb {
   position: relative;
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  background: radial-gradient(circle at 32% 30%, #dceaff 0%, #9cc2ff 32%, #4f86e8 68%, #2a4f9e 100%);
+  overflow: hidden;
+  background: radial-gradient(circle at 32% 28%, #C8E6F8 0%, #5FB9E8 30%, #1E7BF0 62%, #2540A5 100%);
   box-shadow:
-    0 0 60px var(--accent-soft),
-    0 0 140px var(--accent-soft);
+    inset 0 -20px 36px rgba(19, 42, 92, 0.35),
+    inset 0 12px 24px rgba(255, 255, 255, 0.45),
+    var(--shadow-lift);
   transition: background 0.6s ease, box-shadow 0.6s ease;
   will-change: transform;
 }
 
-.orb.listening {
-  background: radial-gradient(circle at 32% 30%, #e2fff0 0%, #a5ecc7 32%, #4ec98d 68%, #1f7a52 100%);
-  box-shadow:
-    0 0 60px var(--listen-soft),
-    0 0 140px var(--listen-soft);
+.orb::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.32) 55deg,
+    transparent 120deg,
+    rgba(124, 197, 234, 0.45) 200deg,
+    transparent 265deg,
+    rgba(255, 255, 255, 0.22) 320deg,
+    transparent 360deg
+  );
+  filter: blur(16px);
+  animation: orbSwirl 9s linear infinite;
 }
+
+@keyframes orbSwirl {
+  to { transform: rotate(360deg); }
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  top: 9%;
+  left: 15%;
+  width: 44%;
+  height: 30%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  filter: blur(3px);
+  transform: rotate(-18deg);
+}
+
+.orb.listening {
+  background: radial-gradient(circle at 32% 28%, #CDEEDD 0%, #5FCE9B 32%, #1E9E6E 66%, #135C42 100%);
+  box-shadow:
+    inset 0 -20px 36px rgba(10, 61, 44, 0.35),
+    inset 0 12px 24px rgba(255, 255, 255, 0.42),
+    var(--shadow-lift);
+}
+
+/* The old neon glow becomes a soft navy-tinted aura that still
+   scales with the audio level. */
 
 .orb-halo {
   position: absolute;
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  background: var(--accent-soft);
-  filter: blur(50px);
+  background: rgba(53, 168, 224, 0.20);
+  filter: blur(34px);
   transition: background 0.6s ease;
   will-change: transform;
 }
 
 .orb-halo.listening {
-  background: var(--listen-soft);
+  background: rgba(30, 158, 110, 0.18);
 }
 
 .qa-slot {
@@ -235,6 +390,7 @@ h1 {
   font-size: 1.35rem;
   line-height: 1.5;
   font-weight: 500;
+  color: var(--navy-900);
 }
 
 /* Analysis insight lines — streamed in one by one. */
@@ -259,11 +415,11 @@ h1 {
 
 .insights li.ok::before {
   content: "✓  ";
-  color: var(--listen);
+  color: var(--green-600);
 }
 
 .insights li.gap {
-  color: var(--warn);
+  color: var(--amber-700);
   font-weight: 600;
 }
 
@@ -279,7 +435,7 @@ h1 {
   height: 4px;
   margin-top: 0.4rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border);
   overflow: hidden;
 }
 
@@ -292,7 +448,7 @@ h1 {
   height: 100%;
   width: 40%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #4f86e8, #6ea8ff);
+  background: var(--brand-gradient);
   animation: genSlide 1s ease-in-out infinite;
 }
 
@@ -304,7 +460,7 @@ h1 {
 /* Acknowledgement beat */
 
 .voice-header .status.ack {
-  color: var(--listen);
+  color: var(--green-600);
   font-weight: 700;
 }
 
@@ -318,16 +474,16 @@ h1 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
+  background: #C9D4E3;
   transition: background 0.3s ease;
 }
 
 .progress .dot.current {
-  background: var(--text);
+  background: var(--navy-900);
 }
 
 .progress .dot.done {
-  background: var(--accent);
+  background: var(--sky-500);
 }
 
 /* ---------- End screen ---------- */
@@ -340,8 +496,8 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  background: rgba(127, 227, 176, 0.15);
-  color: var(--listen);
+  background: var(--bg-tint-green);
+  color: var(--green-600);
 }
 
 .topics {
@@ -354,11 +510,11 @@ h1 {
 
 .topics li.ok::before {
   content: "✓  ";
-  color: var(--listen);
+  color: var(--green-600);
 }
 
 .topics li.gap {
-  color: var(--warn);
+  color: var(--amber-700);
 }
 
 .topics li.gap::before {
@@ -367,18 +523,18 @@ h1 {
 
 .footer-note {
   margin-top: 1.2rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
 }
 
 /* ---------- Teacher dashboard ---------- */
 
 .dash-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 1.2rem 1.6rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-card);
 }
 
 .dash-table {
@@ -386,7 +542,7 @@ h1 {
 }
 
 .dash-table th {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -411,7 +567,7 @@ h1 {
 }
 
 .dash-table tr.highlight td {
-  background: rgba(110, 168, 255, 0.1);
+  background: var(--bg-tint-blue);
 }
 
 .dash-table tr.highlight td:first-child {
@@ -434,19 +590,20 @@ h1 {
 }
 
 .cell-dot.ok {
-  background: rgba(127, 227, 176, 0.15);
-  color: var(--listen);
+  background: var(--bg-tint-green);
+  color: var(--green-600);
 }
 
 .cell-dot.gap {
-  background: var(--warn-soft);
-  color: var(--warn);
+  background: rgba(245, 185, 15, 0.18);
+  color: var(--amber-700);
 }
 
 .dash-insight {
   max-width: 38rem;
-  color: var(--warn);
-  font-size: 0.95rem;
+  color: var(--amber-700);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .dash-insight::before {
