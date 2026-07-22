@@ -55,10 +55,10 @@ const DASH_CONFIG = {
     eyebrow: "Homework review",
     title: 'The <span class="hl">Tequila</span> Crisis.',
     subtitle: "Group 5B · 28 of 31 students completed · avg. session 9 min",
-    hint: "This demo follows Alejo — click his row.",
+    hint: "This demo follows Marielle — click her row.",
     columns: ["Daily-life consequences", "Rescue package", "Tesobonos & debt"],
     students: [
-      { name: "Alejo Ramírez", cells: ["ok", "ok", "gap"], highlight: true, live: true },
+      { name: "Marielle Marasigan", cells: ["ok", "ok", "gap"], highlight: true, live: true },
       { name: "Camila Torres", cells: ["ok", "ok", "ok"] },
       { name: "Diego Fuentes", cells: ["ok", "gap", "ok"] },
       { name: "Mariana López", cells: ["ok", "ok", "ok"] },
@@ -89,11 +89,11 @@ const DASH_CONFIG = {
     ],
   },
 
-  // ---------- 3. Student profile (Alejo) ----------
+  // ---------- 3. Student profile (Marielle) ----------
   studentView: {
     eyebrow: "Student profile",
-    name: "Alejo Ramírez",
-    initials: "AR",
+    name: "Marielle Marasigan",
+    initials: "MM",
     sub: "Group 5B · Economic History · last session yesterday, 7:42 pm",
     stats: [
       { value: "12", label: "sessions completed" },
@@ -108,7 +108,7 @@ const DASH_CONFIG = {
       { ok: false, topic: "Tesobonos & Mexico's debt accumulation", note: "Gap — reviewed with tutor yesterday, recheck next week" },
       { ok: true, topic: "Import substitution (last week)", note: "Solid" },
     ],
-    styleTitle: "How Alejo learns best",
+    styleTitle: "How Marielle learns best",
     styleNotes: [
       "Responds well to real-life, day-to-day examples — abstract financial terms need grounding.",
       "Answers get stronger when asked to argue a position rather than recall facts.",
@@ -118,9 +118,9 @@ const DASH_CONFIG = {
     quotes: [
       {
         tag: "gap",
-        label: "Where he struggled",
+        label: "Where she struggled",
         text: "“The tesobonos were like… normal government bonds? I don't remember why they were different.”",
-        note: "Tutor re-explained dollar-indexing with a household-debt analogy — Alejo restated it correctly after.",
+        note: "Tutor re-explained dollar-indexing with a household-debt analogy — Marielle restated it correctly after.",
       },
       {
         tag: "ok",

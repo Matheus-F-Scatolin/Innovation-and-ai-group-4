@@ -26,7 +26,7 @@ const CRUMBS = {
   student: [
     ["Assignments", "assignments"],
     ["The Tequila Crisis", "class"],
-    ["Alejo Ramírez", null],
+    ["Marielle Marasigan", null],
   ],
   trends: [["Assignments", "assignments"], ["Class trends", null]],
 };

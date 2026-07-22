@@ -14,7 +14,7 @@ Open **http://localhost:8000** in **Chrome** and allow microphone access
 
 ## Demo flow (Space bar drives everything)
 
-1. **Class & topic picker** — Alejo's classes, then Economic History's topics.
+1. **Class & topic picker** — Marielle's classes, then Economic History's topics.
    Only the scripted path is live (**Economic History → The Tequila
    Crisis**); the other cards nudge with a hint if clicked. `Space`
    auto-picks the live card on each step, so two presses get you
@@ -30,8 +30,8 @@ Open **http://localhost:8000** in **Chrome** and allow microphone access
    script below).
 4. **Generating beat** — "Generating your personalized review…" with a
    loading bar for ~2 seconds, then the video starts automatically.
-5. **Personalized review video** — the teacher's AI avatar (Spanish,
-   English captions) reviewing the flagged topic. When it ends the flow
+5. **Personalized review video** — the teacher's AI avatar (English,
+   with captions) reviewing the flagged topic. When it ends the flow
    **freezes on the last frame** and asks the student for feedback
    (👍 / 👎 — clicking records it with a thank-you line). Nothing
    advances until you press `Space`. Pressing `Space` mid-video skips
@@ -39,7 +39,7 @@ Open **http://localhost:8000** in **Chrome** and allow microphone access
 6. **Student end screen** — honest summary: two topics solid, the
    flagged one already reviewed with the tutor.
 7. **Teacher dashboard** — Prof. Emiliano's class view: per-topic
-   mastery, Alejo's row highlighted with the Tesobonos gap, plus a
+   mastery, Marielle's row highlighted with the Tesobonos gap, plus a
    class-wide insight. Final screen.
 
 ## Presenter script (spoken answers)
@@ -59,13 +59,9 @@ video → teacher dashboard → director view) hangs on that gap:
 > Mexico was having issues with debt accumulation on Tesobonos."*)
 
 **Emiliano's review-video script (the recorded video in
-`assets/video/tutor-intro.mp4`, ~15s):**
+`assets/video/tutor-intro.mp4`, ~15s, English):**
 
-> *"Hola Alejo. Muy bien en las primeras dos preguntas. En la tercera,
-> recuerda: la crisis vino de factores históricos — México acumuló deuda
-> en Tesobonos, bonos ligados al dólar. Repásalo y lo vemos en clase."*
->
-> English captions: *"Hi Alejo. Great job on the first two questions. On
+> *"Hi Marielle. Great job on the first two questions. On
 > the third one, remember: the crisis came from historical factors —
 > Mexico accumulated debt in Tesobonos, bonds tied to the dollar. Review
 > it and we'll go over it in class."*

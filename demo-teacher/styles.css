@@ -40,6 +40,11 @@
   --card-border: #E3E8EF;
 }
 
+html {
+  /* Scale up all rem-based type uniformly (16px -> 18px base) */
+  font-size: 112.5%;
+}
+
 html,
 body {
   height: 100%;
@@ -100,7 +105,7 @@ body {
 
 .eyebrow {
   font-family: "Courier New", ui-monospace, monospace;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.35em;
   text-transform: uppercase;
