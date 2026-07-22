@@ -1,7 +1,8 @@
 // ============================================================
 // Teacher demo — state machine + audio-reactive orb.
-// States: start → upload (3 staged drops) → takeaways ⇄ ack
-//         → analyzing → generating → package → assigned
+// States: pick-class → start → upload (3 staged drops)
+//         → takeaways ⇄ ack → analyzing → generating
+//         → package → assigned
 // Space / → / PageDown advance · ← / PageUp go back · R restarts.
 // Same control scheme and visual language as ../demo (the
 // student flow) so the two read as one product.
@@ -10,6 +11,7 @@
 const $ = (sel) => document.querySelector(sel);
 
 const screens = {
+  pick: $("#screen-pick"),
   start: $("#screen-start"),
   upload: $("#screen-upload"),
   voice: $("#screen-voice"),
@@ -105,6 +107,71 @@ function animate() {
 function show(name) {
   Object.values(screens).forEach((s) => s.classList.remove("active"));
   screens[name].classList.add("active");
+}
+
+// ---------- Class picker ----------
+// One quick step before the start screen. Only the scripted class
+// is live (enabled: true); the other cards nudge and show the hint.
+// Space auto-picks the live card so the stage flow stays foolproof.
+
+const pickHint = $("#pick-hint");
+let liveCard = null; // the enabled card
+
+function showPicker() {
+  clearTimers();
+  state = "pick-class";
+  const cfg = TEACHER_CONFIG.picker.classes;
+
+  $("#pick-eyebrow").textContent = cfg.eyebrow;
+  $("#pick-title").innerHTML = cfg.title;
+  pickHint.textContent = cfg.hint;
+  pickHint.classList.remove("visible");
+
+  const list = $("#pick-cards");
+  list.innerHTML = "";
+  liveCard = null;
+  cfg.items.forEach((item) => {
+    const li = document.createElement("li");
+    li.className = "pick-card" + (item.enabled ? "" : " demo");
+    const name = document.createElement("div");
+    name.className = "pick-name";
+    name.textContent = item.name;
+    li.appendChild(name);
+    if (item.sub) {
+      const sub = document.createElement("div");
+      sub.className = "pick-sub";
+      sub.textContent = item.sub;
+      li.appendChild(sub);
+    }
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (item.enabled) selectCard(li);
+      else nudge(li);
+    });
+    if (item.enabled) liveCard = li;
+    list.appendChild(li);
+  });
+
+  show("pick");
+}
+
+// Highlight the card for a beat before moving on, so the choice reads.
+function selectCard(li) {
+  if (li.classList.contains("selected")) return;
+  li.classList.add("selected");
+  later(showStart, 350);
+}
+
+function nudge(li) {
+  li.classList.add("nope");
+  pickHint.classList.add("visible");
+  setTimeout(() => li.classList.remove("nope"), 400);
+}
+
+function showStart() {
+  clearTimers();
+  state = "start";
+  show("start");
 }
 
 function begin() {
@@ -299,6 +366,11 @@ const ADVANCE_KEYS = ["Space", "Enter", "ArrowRight", "PageDown"];
 const BACK_KEYS = ["ArrowLeft", "PageUp"];
 
 function advance() {
+  // Space auto-picks the scripted class on the picker step.
+  if (state === "pick-class") {
+    if (liveCard) selectCard(liveCard);
+    return;
+  }
   if (state === "start") return begin();
   if (state === "upload") {
     if (uploadedCount < TEACHER_CONFIG.upload.files.length) return uploadNext();
@@ -316,9 +388,10 @@ function advance() {
 // Step one beat backwards — the safety valve for an accidental
 // double-press on stage.
 function goBack() {
+  if (state === "start") return showPicker();
   if (state === "upload") {
     if (uploadedCount > 0) return removeLastUpload();
-    return restart();
+    return showStart();
   }
   if (state === "takeaways" || state === "ack") return showUpload();
   if (state === "analyzing") return startTakeaways();
@@ -344,8 +417,7 @@ function restart() {
   continueBtn.classList.remove("ready");
   approveBtn.classList.remove("busy");
   approveBtn.textContent = TEACHER_CONFIG.package.approveLabel;
-  state = "start";
-  show("start");
+  showPicker();
 }
 
 document.addEventListener("keydown", (e) => {
@@ -469,5 +541,5 @@ function hydrate() {
 }
 
 hydrate();
-show("start");
+showPicker();
 animate();
