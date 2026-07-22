@@ -397,11 +397,13 @@ function hydrate() {
   const cfg = TEACHER_CONFIG;
 
   $("#course").textContent = cfg.course;
-  $("#topic-title").textContent = cfg.upload.title;
+  // Headlines carry the brand's one-yellow-word markup (config-owned
+  // trusted strings), so they hydrate as HTML.
+  $("#topic-title").innerHTML = cfg.upload.title;
   $("#intro").textContent = cfg.intro;
 
   $("#upload-eyebrow").textContent = cfg.teacher + " · " + cfg.group;
-  $("#upload-title").textContent = cfg.topic;
+  $("#upload-title").innerHTML = cfg.topicHeadline;
   $("#drop-hint").textContent = cfg.upload.hint;
   $("#ready-note").textContent = cfg.upload.ready;
   continueBtn.textContent = cfg.upload.continueLabel;
@@ -410,7 +412,7 @@ function hydrate() {
 
   const pkg = cfg.package;
   $("#pkg-eyebrow").textContent = pkg.eyebrow;
-  $("#pkg-title").textContent = pkg.title;
+  $("#pkg-title").innerHTML = pkg.title;
   $("#pkg-subtitle").textContent = pkg.subtitle;
   $("#brief-label").textContent = pkg.brief.label;
   $("#brief-text").textContent = pkg.brief.text;
@@ -460,7 +462,7 @@ function hydrate() {
   $("#avatar-text").textContent = pkg.avatar.text;
   approveBtn.textContent = pkg.approveLabel;
 
-  $("#assigned-title").textContent = cfg.assigned.title;
+  $("#assigned-title").innerHTML = cfg.assigned.title;
   $("#assigned-message").textContent = cfg.assigned.message;
   $("#assigned-footer").textContent = cfg.assigned.footer;
 }

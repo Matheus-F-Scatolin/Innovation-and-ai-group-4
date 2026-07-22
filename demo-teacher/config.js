@@ -8,6 +8,9 @@ const TEACHER_CONFIG = {
   teacher: "Prof. Emiliano",
   course: "Economic History of Latin America",
   topic: "The Tequila Crisis",
+  // Upload-screen headline (rendered as HTML): navy with one yellow
+  // highlight word, per the brand headline pattern.
+  topicHeadline: 'The <span class="hl">Tequila</span> Crisis.',
   group: "Grupo 5°B",
   students: 31,
 
@@ -20,7 +23,7 @@ const TEACHER_CONFIG = {
   // Each advance "drops" the next file into the zone — no real
   // file dialogs on stage. Progress is faked per card.
   upload: {
-    title: "New homework review",
+    title: 'New <span class="hl">homework</span> review.',
     hint: "Add your class materials",
     files: [
       {
@@ -74,7 +77,7 @@ const TEACHER_CONFIG = {
   // same three recordings the student demo plays.
   package: {
     eyebrow: "Review & approve",
-    title: "Homework review — The Tequila Crisis",
+    title: 'Homework review — The <span class="hl">Tequila</span> Crisis.',
     subtitle:
       "Generated from your class. Nothing reaches students until you approve it.",
     brief: {
@@ -121,7 +124,7 @@ const TEACHER_CONFIG = {
 
   // ---------- 5. Assigned confirmation ----------
   assigned: {
-    title: "Assigned to Grupo 5°B",
+    title: 'Assigned to <span class="hl">Grupo 5°B</span>.',
     message:
       "31 students will get the voice review on their devices. " +
       "Results land in your dashboard as they finish.",
