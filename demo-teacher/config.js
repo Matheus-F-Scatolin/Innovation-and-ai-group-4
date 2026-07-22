@@ -11,12 +11,12 @@ const TEACHER_CONFIG = {
   // Upload-screen headline (rendered as HTML): navy with one yellow
   // highlight word, per the brand headline pattern.
   topicHeadline: 'The <span class="hl">Tequila</span> Crisis.',
-  group: "Grupo 5°B",
+  group: "Group 5B",
   students: 31,
 
   // ---------- 0. Class picker ----------
   // One quick step before the start screen: pick the class group.
-  // Only the scripted path (Grupo 5°B) is live; the other cards
+  // Only the scripted path (Group 5B) is live; the other cards
   // nudge and show the hint. Space auto-picks the live card, so
   // the stage flow stays foolproof. The topic itself comes from
   // the materials uploaded in the next beat.
@@ -24,11 +24,11 @@ const TEACHER_CONFIG = {
     classes: {
       eyebrow: "Your classes",
       title: 'Which <span class="hl">class</span> are we working with?',
-      hint: "This demo follows Grupo 5°B — pick that one.",
+      hint: "This demo follows Group 5B — pick that one.",
       items: [
-        { name: "Grupo 5°B", sub: "Historia Económica · 31 students", enabled: true },
-        { name: "Grupo 5°A", sub: "Historia Económica · 29 students", enabled: false },
-        { name: "Grupo 6°A", sub: "Historia Universal · 33 students", enabled: false },
+        { name: "Group 5B", sub: "Economic History · 31 students", enabled: true },
+        { name: "Group 5A", sub: "Economic History · 29 students", enabled: false },
+        { name: "Group 6A", sub: "World History · 33 students", enabled: false },
       ],
     },
   },
@@ -47,17 +47,17 @@ const TEACHER_CONFIG = {
     files: [
       {
         icon: "🎙️",
-        name: "Clase 12 — La Crisis del Tequila.m4a",
+        name: "Class 12 — The Tequila Crisis.m4a",
         meta: "Class recording · 42 min",
       },
       {
         icon: "📕",
-        name: "Historia Económica de América Latina — Cap. 8.pdf",
+        name: "Economic History of Latin America — Ch. 8.pdf",
         meta: "Course book · 34 pages",
       },
       {
         icon: "📊",
-        name: "Clase 12 — Slides.pdf",
+        name: "Class 12 — Slides.pdf",
         meta: "Class slides · 18 slides",
       },
     ],
@@ -138,13 +138,13 @@ const TEACHER_CONFIG = {
         "each student who shows a gap.",
     },
     reviewLabel: "Edit",
-    approveLabel: "Approve & assign to Grupo 5°B",
+    approveLabel: "Approve & assign to Group 5B",
     approvingLabel: "Assigning…",
   },
 
   // ---------- 5. Assigned confirmation ----------
   assigned: {
-    title: 'Assigned to <span class="hl">Grupo 5°B</span>.',
+    title: 'Assigned to <span class="hl">Group 5B</span>.',
     message:
       "31 students will get the voice review on their devices. " +
       "Results land in your dashboard as they finish.",

@@ -14,7 +14,7 @@ python3 -m http.server 8123
 
 ## Views
 
-1. **Assignments** — landing page for Prof. Emiliano / Grupo 5°B.
+1. **Assignments** — landing page for Prof. Emiliano / Group 5B.
    Only "The Tequila Crisis" is live; the other cards nudge.
 2. **Class dashboard** — students × topics grid, class-wide gap insight,
    and AI-suggested actions. Click Alejo's row for the profile.
