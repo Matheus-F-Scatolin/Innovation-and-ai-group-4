@@ -239,7 +239,7 @@ function showPackage() {
   state = "package";
 
   // Re-trigger the staggered card animation on every entry.
-  const cards = screens.package.querySelectorAll(".pkg-card, .btn.approve");
+  const cards = screens.package.querySelectorAll(".pkg-card, .pkg-actions .btn");
   cards.forEach((c) => {
     c.style.animation = "none";
     void c.offsetWidth; // reflow to restart the CSS animation
@@ -460,6 +460,7 @@ function hydrate() {
 
   $("#avatar-label").textContent = pkg.avatar.label;
   $("#avatar-text").textContent = pkg.avatar.text;
+  $("#review-btn").textContent = pkg.reviewLabel;
   approveBtn.textContent = pkg.approveLabel;
 
   $("#assigned-title").innerHTML = cfg.assigned.title;

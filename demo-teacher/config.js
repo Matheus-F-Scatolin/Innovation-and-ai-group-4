@@ -118,6 +118,7 @@ const TEACHER_CONFIG = {
         "Your AI avatar will record a personalized review video for " +
         "each student who shows a gap.",
     },
+    reviewLabel: "Edit",
     approveLabel: "Approve & assign to Grupo 5°B",
     approvingLabel: "Assigning…",
   },
