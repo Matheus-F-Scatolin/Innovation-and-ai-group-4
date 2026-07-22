@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>explAIn — Teacher Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="brand-header">
+    <img class="brand-logo" src="assets/logo.png" alt="explAIn" />
+    <nav class="crumbs" id="crumbs"></nav>
+  </header>
+
+  <main class="app">
+
+    <!-- 1. Assignment list (landing) -->
+    <section id="view-assignments" class="view">
+      <div class="eyebrow" id="assign-eyebrow"></div>
+      <h1 id="assign-title"></h1>
+      <p class="subtitle" id="assign-subtitle"></p>
+      <ul class="assign-list" id="assign-list"></ul>
+      <p class="picker-hint" id="assign-hint"></p>
+    </section>
+
+    <!-- 2. Class dashboard for one assignment -->
+    <section id="view-class" class="view">
+      <div class="eyebrow" id="class-eyebrow"></div>
+      <h1 id="class-title"></h1>
+      <p class="subtitle" id="class-subtitle"></p>
+
+      <div class="class-layout">
+        <div class="class-main">
+          <div class="dash-card">
+            <table class="dash-table" id="class-table"></table>
+          </div>
+          <p class="dash-insight" id="class-insight"></p>
+          <p class="picker-hint" id="class-hint"></p>
+        </div>
+
+        <aside class="actions-panel">
+          <h2 class="panel-title" id="actions-title"></h2>
+          <ul class="action-cards" id="action-cards"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. Student profile -->
+    <section id="view-student" class="view">
+      <div class="profile-head">
+        <div class="avatar" id="student-avatar"></div>
+        <div>
+          <div class="eyebrow" id="student-eyebrow"></div>
+          <h1 id="student-name"></h1>
+          <p class="subtitle" id="student-sub"></p>
+        </div>
+      </div>
+
+      <ul class="stat-row" id="student-stats"></ul>
+
+      <div class="profile-grid">
+        <div class="profile-col">
+          <h2 class="panel-title" id="mastery-title"></h2>
+          <ul class="mastery-list" id="mastery-list"></ul>
+
+          <h2 class="panel-title" id="style-title"></h2>
+          <ul class="style-list" id="style-list"></ul>
+        </div>
+
+        <div class="profile-col">
+          <h2 class="panel-title" id="quotes-title"></h2>
+          <ul class="quote-cards" id="quote-cards"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Class trends over time -->
+    <section id="view-trends" class="view">
+      <div class="eyebrow" id="trends-eyebrow"></div>
+      <h1 id="trends-title"></h1>
+      <p class="subtitle" id="trends-subtitle"></p>
+
+      <div class="trend-card">
+        <ul class="trend-bars" id="trend-bars"></ul>
+      </div>
+      <p class="trend-insight" id="trends-insight"></p>
+    </section>
+
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

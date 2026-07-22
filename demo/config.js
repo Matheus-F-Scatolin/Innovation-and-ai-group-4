@@ -113,21 +113,4 @@ const DEMO_CONFIG = {
     ],
     footer: "Results shared with Prof. Emiliano's dashboard.",
   },
-
-  // What the teacher sees after the session (next beat in the flow).
-  teacherView: {
-    eyebrow: "Teacher dashboard",
-    title: 'Prof. Emiliano — <span class="hl">Grupo 5°B</span>.',
-    subtitle: "Homework review: The Tequila Crisis · 28 of 31 students completed",
-    columns: ["Daily-life consequences", "Rescue package", "Tesobonos & debt"],
-    students: [
-      { name: "Alejo Ramírez", cells: ["ok", "ok", "gap"], highlight: true },
-      { name: "Camila Torres", cells: ["ok", "ok", "ok"] },
-      { name: "Diego Fuentes", cells: ["ok", "gap", "ok"] },
-      { name: "Mariana López", cells: ["ok", "ok", "ok"] },
-      { name: "Santiago Vera", cells: ["gap", "ok", "gap"] },
-    ],
-    insight:
-      "Class-wide gap: 11 of 28 students struggled with Tesobonos — suggested: a 10-minute recap next class.",
-  },
 };

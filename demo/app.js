@@ -2,7 +2,7 @@
 // Voice session demo — state machine + audio-reactive orb.
 // States: pick-subject → pick-topic → start
 //         → speaking(q) ⇄ listening(q) → ack(q) …
-//         → analyzing → generating → video → feedback → done → teacher
+//         → analyzing → generating → video → feedback → done
 // Space / → / PageDown advance · ← / PageUp go back · R restarts.
 // ============================================================
 
@@ -14,7 +14,6 @@ const screens = {
   voice: $("#screen-voice"),
   video: $("#screen-video"),
   done: $("#screen-done"),
-  teacher: $("#screen-teacher"),
 };
 
 const orb = $("#orb");
@@ -326,11 +325,6 @@ function finish() {
   show("done");
 }
 
-function showTeacher() {
-  state = "teacher";
-  show("teacher");
-}
-
 function restart() {
   clearTimers();
   if (questionAudio) questionAudio.pause();
@@ -379,7 +373,6 @@ function advance() {
   if (state === "generating") return startVideo();
   if (state === "video") return enterFeedback(); // skip to the freeze
   if (state === "feedback") return finish();
-  if (state === "done") return showTeacher();
 }
 
 // Step one beat backwards — the safety valve for an accidental
@@ -398,7 +391,6 @@ function goBack() {
   if (state === "generating" || state === "video") return startAnalysis();
   if (state === "feedback") return startVideo(); // replay the review
   if (state === "done") return enterFeedback();
-  if (state === "teacher") return finish();
 }
 
 document.addEventListener("keydown", (e) => {
@@ -468,47 +460,6 @@ function hydrate() {
   video.load();
   const track = video.textTracks[0];
   if (track) track.mode = "showing";
-
-  hydrateTeacher();
-}
-
-function hydrateTeacher() {
-  const cfg = DEMO_CONFIG.teacherView;
-  $("#teacher-eyebrow").textContent = cfg.eyebrow;
-  $("#teacher-title").innerHTML = cfg.title;
-  $("#teacher-subtitle").textContent = cfg.subtitle;
-  $("#teacher-insight").textContent = cfg.insight;
-
-  const table = $("#teacher-table");
-  const thead = document.createElement("thead");
-  const headRow = document.createElement("tr");
-  ["Student", ...cfg.columns].forEach((col) => {
-    const th = document.createElement("th");
-    th.textContent = col;
-    headRow.appendChild(th);
-  });
-  thead.appendChild(headRow);
-  table.appendChild(thead);
-
-  const tbody = document.createElement("tbody");
-  cfg.students.forEach((s) => {
-    const tr = document.createElement("tr");
-    if (s.highlight) tr.className = "highlight";
-    const name = document.createElement("td");
-    name.className = "name";
-    name.textContent = s.name;
-    tr.appendChild(name);
-    s.cells.forEach((cell) => {
-      const td = document.createElement("td");
-      const dot = document.createElement("span");
-      dot.className = "cell-dot " + cell;
-      dot.textContent = cell === "ok" ? "✓" : "!";
-      td.appendChild(dot);
-      tr.appendChild(td);
-    });
-    tbody.appendChild(tr);
-  });
-  table.appendChild(tbody);
 }
 
 hydrate();
