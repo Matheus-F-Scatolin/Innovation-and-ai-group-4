@@ -1,7 +1,7 @@
 # Demo — Teacher: Create a Homework Review
 
 The authoring side of the [student demo](../demo/): Prof. Emiliano turns
-today's class into the homework review Alejo experiences. Fully offline,
+today's class into the homework review Marielle experiences. Fully offline,
 zero dependencies, zero API keys. Present this **first**, then the
 student demo — teacher creates it → student experiences it → dashboard
 closes the loop.

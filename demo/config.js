@@ -4,7 +4,7 @@
 // ============================================================
 
 const DEMO_CONFIG = {
-  student: "Alejo",
+  student: "Marielle",
   teacher: "Prof. Emiliano",
   course: "Economic History of Latin America",
   topic: "The Tequila Crisis",
@@ -54,14 +54,16 @@ const DEMO_CONFIG = {
   // (recorded by the teacher); text is displayed while it plays.
   // In the demo script, Q3 is answered WRONG — the analysis flags it.
   questions: [
-    {
-      audio: "assets/audio/q1.m4a",
-      text: "What were the consequences in the day-to-day life of the average Mexican during the crisis?",
-    },
-    {
-      audio: "assets/audio/q2.m4a",
-      text: "Was the US financial rescue package a lifeline or a loss of sovereignty?",
-    },
+    // RECORDING CUT (2-min stage video): only Q3 is asked on screen.
+    // To restore the full 3-question session, uncomment Q1 and Q2.
+    // {
+    //   audio: "assets/audio/q1.m4a",
+    //   text: "What were the consequences in the day-to-day life of the average Mexican during the crisis?",
+    // },
+    // {
+    //   audio: "assets/audio/q2.m4a",
+    //   text: "Was the US financial rescue package a lifeline or a loss of sovereignty?",
+    // },
     {
       audio: "assets/audio/q3.m4a",
       text: "Was the Tequila Crisis the result of historical factors or initial mismanagement?",
@@ -97,7 +99,7 @@ const DEMO_CONFIG = {
   // Space is pressed).
   feedback: {
     prompt: "Was this review helpful?",
-    thanks: "Thanks, Alejo — feedback sent to Prof. Emiliano.",
+    thanks: "Thanks, Marielle — feedback sent to Prof. Emiliano.",
   },
 
   // Student end screen — honest, not all-green: two topics solid,
@@ -105,7 +107,7 @@ const DEMO_CONFIG = {
   summary: {
     title: 'Session <span class="hl">complete</span>.',
     message:
-      "Good session, Alejo. Two topics are solid — your tutor just reviewed the one that needs work.",
+      "Good session, Marielle. Two topics are solid — your tutor just reviewed the one that needs work.",
     topics: [
       { ok: true, text: "Hyperinflation, unemployment and household debt" },
       { ok: true, text: "The US rescue package and sovereignty" },

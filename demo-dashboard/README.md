@@ -17,8 +17,8 @@ python3 -m http.server 8123
 1. **Assignments** — landing page for Prof. Emiliano / Group 5B.
    Only "The Tequila Crisis" is live; the other cards nudge.
 2. **Class dashboard** — students × topics grid, class-wide gap insight,
-   and AI-suggested actions. Click Alejo's row for the profile.
-3. **Student profile (Alejo Ramírez)** — engagement stats, topic mastery,
+   and AI-suggested actions. Click Marielle's row for the profile.
+3. **Student profile (Marielle Marasigan)** — engagement stats, topic mastery,
    learning-style observations, and highlights quoted from the tutor session.
 4. **Class trends** — average mastery across the last three assignments.
 
