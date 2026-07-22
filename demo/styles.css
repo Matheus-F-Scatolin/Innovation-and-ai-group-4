@@ -56,7 +56,7 @@ body {
   overflow: hidden;
 }
 
-/* ---------- Brand header & co-brand footer ---------- */
+/* ---------- Brand header ---------- */
 
 .brand-header {
   position: fixed;
@@ -72,32 +72,6 @@ body {
 
 .brand-logo {
   height: 46px;
-}
-
-.brand-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.4rem;
-  z-index: 10;
-  pointer-events: none;
-  font-family: "Courier New", ui-monospace, monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.brand-footer .cobrand {
-  position: absolute;
-  right: 1.4rem;
-  letter-spacing: 0.1em;
-  color: var(--navy-700);
 }
 
 .screen {
@@ -126,7 +100,7 @@ body {
 
 .eyebrow {
   font-family: "Courier New", ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -145,6 +119,7 @@ h1 {
 
 .subtitle {
   max-width: 34rem;
+  font-size: 1.05rem;
   line-height: 1.55;
   color: var(--text-dim);
 }
@@ -170,29 +145,62 @@ h1 {
 
 /* ---------- Video screen ---------- */
 
+/* Product-style layout: copy (and, later, the feedback ask) on the
+   left, the student's phone with the avatar video on the right. */
+
+.video-layout {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  max-width: 1020px;
+  text-align: left;
+}
+
+.video-copy {
+  flex: 1;
+  min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.video-lead {
+  max-width: 26rem;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--navy-900);
+}
+
+/* Phone frame around the vertical avatar video. */
+
+.phone {
+  flex: none;
+  padding: 12px;
+  border-radius: 44px;
+  background: linear-gradient(160deg, #1B2A4A 0%, #0F1A33 100%);
+  box-shadow: var(--shadow-lift);
+}
+
 #screen-video video {
-  height: min(68vh, 620px);
-  border-radius: 18px;
-  box-shadow: var(--shadow-card);
+  display: block;
+  height: min(72vh, 640px);
+  border-radius: 34px;
   background: #000;
 }
 
 #screen-video video::cue {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   background: rgba(0, 0, 0, 0.65);
-}
-
-/* Make room for the feedback prompt once the video freezes. */
-
-#screen-video.feedback-open video {
-  height: min(56vh, 520px);
 }
 
 .feedback {
   display: none;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.9rem;
+  margin-top: 0.4rem;
 }
 
 .feedback.active {
@@ -201,7 +209,7 @@ h1 {
 }
 
 .feedback-prompt {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 500;
 }
 
@@ -235,7 +243,7 @@ h1 {
 
 #screen-voice {
   justify-content: space-between;
-  padding: 4.6rem 2rem 3.2rem;
+  padding: 4.6rem 2rem 2.5rem;
 }
 
 .voice-header {
@@ -251,7 +259,7 @@ h1 {
 
 .voice-header .status {
   color: var(--text-dim);
-  font-size: 0.9rem;
+  font-size: 1rem;
   min-height: 1.2em;
   transition: color 0.3s ease;
 }
@@ -517,7 +525,7 @@ h1 {
 
 .footer-note {
   margin-top: 1.2rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
 }
 
@@ -536,7 +544,7 @@ h1 {
 }
 
 .dash-table th {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -596,7 +604,7 @@ h1 {
 .dash-insight {
   max-width: 38rem;
   color: var(--amber-700);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
 }
 

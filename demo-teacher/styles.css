@@ -56,7 +56,7 @@ body {
   overflow: hidden;
 }
 
-/* ---------- Brand header & co-brand footer ---------- */
+/* ---------- Brand header ---------- */
 
 .brand-header {
   position: fixed;
@@ -72,32 +72,6 @@ body {
 
 .brand-logo {
   height: 46px;
-}
-
-.brand-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.4rem;
-  z-index: 10;
-  pointer-events: none;
-  font-family: "Courier New", ui-monospace, monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.brand-footer .cobrand {
-  position: absolute;
-  right: 1.4rem;
-  letter-spacing: 0.1em;
-  color: var(--navy-700);
 }
 
 .screen {
@@ -126,7 +100,7 @@ body {
 
 .eyebrow {
   font-family: "Courier New", ui-monospace, monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -145,6 +119,7 @@ h1 {
 
 .subtitle {
   max-width: 34rem;
+  font-size: 1.05rem;
   line-height: 1.55;
   color: var(--text-dim);
 }
@@ -196,7 +171,7 @@ h1 {
 
 .drop-hint {
   color: var(--navy-700);
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .file-list {
@@ -231,7 +206,7 @@ h1 {
 }
 
 .file-card .fname {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -239,7 +214,7 @@ h1 {
 }
 
 .file-card .fmeta {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-dim);
   margin-top: 0.15rem;
   min-height: 1em;
@@ -292,7 +267,7 @@ h1 {
 }
 
 .ready-note {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--green-600);
   min-height: 1.2em;
@@ -322,7 +297,7 @@ h1 {
 
 #screen-voice {
   justify-content: space-between;
-  padding: 4.6rem 2rem 3.2rem;
+  padding: 4.6rem 2rem 2.5rem;
 }
 
 .voice-header {
@@ -338,7 +313,7 @@ h1 {
 
 .voice-header .status {
   color: var(--text-dim);
-  font-size: 0.9rem;
+  font-size: 1rem;
   min-height: 1.2em;
   transition: color 0.3s ease;
 }
@@ -546,7 +521,7 @@ h1 {
 }
 
 #screen-package .subtitle {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .pkg-grid {
@@ -599,7 +574,7 @@ h1 {
 }
 
 .card-label {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -616,19 +591,19 @@ h1 {
 }
 
 .card-text {
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.55;
   color: var(--text);
 }
 
 .card-note {
   margin-top: 0.6rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-dim);
 }
 
 .voice-badge {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--blue-600);
   background: var(--bg-tint-blue);
@@ -684,14 +659,14 @@ h1 {
 }
 
 .q-text {
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.45;
   font-weight: 500;
 }
 
 .q-checks {
   margin-top: 0.3rem;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: var(--text-dim);
 }
 
@@ -708,7 +683,7 @@ h1 {
 }
 
 .topic-chips li {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 500;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
@@ -783,6 +758,6 @@ h1 {
 
 .footer-note {
   margin-top: 1.2rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
 }

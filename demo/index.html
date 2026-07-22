@@ -42,17 +42,23 @@
 
   <!-- 3. Personalized review video (teacher's AI avatar, Spanish w/ English captions) -->
   <section id="screen-video" class="screen">
-    <div class="eyebrow" id="video-eyebrow"></div>
-    <p class="subtitle" id="video-lead"></p>
-    <video id="review-video" playsinline crossorigin="anonymous">
-      <source type="video/mp4" />
-      <track kind="subtitles" srclang="en" label="English" default />
-    </video>
-    <div class="feedback" id="feedback">
-      <p class="feedback-prompt" id="feedback-prompt"></p>
-      <div class="feedback-btns">
-        <button class="thumb" id="thumb-up" aria-label="Helpful">👍</button>
-        <button class="thumb" id="thumb-down" aria-label="Not helpful">👎</button>
+    <div class="video-layout">
+      <div class="video-copy">
+        <div class="eyebrow" id="video-eyebrow"></div>
+        <p class="video-lead" id="video-lead"></p>
+        <div class="feedback" id="feedback">
+          <p class="feedback-prompt" id="feedback-prompt"></p>
+          <div class="feedback-btns">
+            <button class="thumb" id="thumb-up" aria-label="Helpful">👍</button>
+            <button class="thumb" id="thumb-down" aria-label="Not helpful">👎</button>
+          </div>
+        </div>
+      </div>
+      <div class="phone">
+        <video id="review-video" playsinline crossorigin="anonymous">
+          <source type="video/mp4" />
+          <track kind="subtitles" srclang="en" label="English" default />
+        </video>
       </div>
     </div>
   </section>
@@ -76,11 +82,6 @@
     </div>
     <p class="dash-insight" id="teacher-insight"></p>
   </section>
-
-  <footer class="brand-footer">
-    <span>Team 4 · Santander × IE Innovation &amp; AI · 2026</span>
-    <span class="cobrand">ie × Santander</span>
-  </footer>
 
   <script src="config.js"></script>
   <script src="app.js"></script>
