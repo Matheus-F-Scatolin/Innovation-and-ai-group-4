@@ -363,10 +363,12 @@ thumbDown.addEventListener("click", () => pickThumb(thumbDown, thumbUp));
 
 function hydrate() {
   $("#course").textContent = DEMO_CONFIG.course;
-  $("#topic-title").textContent = DEMO_CONFIG.topic;
+  // Headlines carry the brand's one-yellow-word markup (config-owned
+  // trusted strings), so they hydrate as HTML.
+  $("#topic-title").innerHTML = DEMO_CONFIG.topicHeadline;
   $("#homework-intro").textContent = DEMO_CONFIG.homeworkIntro;
   $("#voice-topic").textContent = DEMO_CONFIG.topic;
-  $("#summary-title").textContent = DEMO_CONFIG.summary.title;
+  $("#summary-title").innerHTML = DEMO_CONFIG.summary.title;
   $("#summary-message").textContent = DEMO_CONFIG.summary.message;
   $("#summary-footer").textContent = DEMO_CONFIG.summary.footer;
 
@@ -394,7 +396,7 @@ function hydrate() {
 function hydrateTeacher() {
   const cfg = DEMO_CONFIG.teacherView;
   $("#teacher-eyebrow").textContent = cfg.eyebrow;
-  $("#teacher-title").textContent = cfg.title;
+  $("#teacher-title").innerHTML = cfg.title;
   $("#teacher-subtitle").textContent = cfg.subtitle;
   $("#teacher-insight").textContent = cfg.insight;
 

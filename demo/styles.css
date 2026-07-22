@@ -5,18 +5,39 @@
 }
 
 :root {
-  --bg-0: #07090f;
-  --bg-1: #0d1220;
-  --text: #e8ecf4;
-  --text-dim: #8a93a6;
-  --accent: #6ea8ff;
-  --accent-soft: rgba(110, 168, 255, 0.35);
-  --listen: #7fe3b0;
-  --listen-soft: rgba(127, 227, 176, 0.35);
-  --warn: #ffcf7d;
-  --warn-soft: rgba(255, 207, 125, 0.16);
-  --card: rgba(255, 255, 255, 0.045);
-  --card-border: rgba(255, 255, 255, 0.09);
+  /* Brand (DESIGN.md §2) */
+  --brand-blue: #2540A5;
+  --brand-gradient: linear-gradient(135deg, #1E7BF0 0%, #35A8E0 100%);
+  --navy-900: #132A5C;
+  --navy-700: #1E3A8A;
+  --yellow-500: #F5B90F;
+  --sky-500: #35A8E0;
+  --sky-300: #7CC5EA;
+  --blue-600: #2F6FE4;
+  --green-600: #1E9E6E;
+  --red-500: #D94F3D;
+  --amber-700: #9A6B08;
+  --purple-500: #7C5CBF;
+  --teal-600: #178A80;
+  --bg-tint-blue: #EFF5FC;
+  --bg-tint-green: #EAF6F0;
+  --shadow-card: 0 2px 8px rgba(19, 42, 92, 0.06), 0 12px 32px rgba(19, 42, 92, 0.08);
+  --shadow-lift: 0 4px 12px rgba(19, 42, 92, 0.10), 0 20px 48px rgba(19, 42, 92, 0.12);
+
+  /* Legacy tokens, remapped to the light theme (app.js untouched) */
+  --bg-0: #F4F6F9;
+  --bg-1: #FFFFFF;
+  --text: #1A2233;
+  --text-dim: #5B6472;
+  --border: #E3E8EF;
+  --accent: #35A8E0;
+  --accent-soft: rgba(53, 168, 224, 0.25);
+  --listen: #1E9E6E;
+  --listen-soft: rgba(30, 158, 110, 0.22);
+  --warn: #F5B90F;
+  --warn-soft: rgba(245, 185, 15, 0.15);
+  --card: #FFFFFF;
+  --card-border: #E3E8EF;
 }
 
 html,
@@ -25,10 +46,58 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   color: var(--text);
-  background: radial-gradient(120% 120% at 50% 0%, var(--bg-1) 0%, var(--bg-0) 70%);
+  /* Near-white base with the deck's faint diagonal panel texture */
+  background:
+    linear-gradient(160deg, #FFFFFFD9 0%, #FFFFFF00 45%),
+    linear-gradient(340deg, #EDF1F7 0%, rgba(237, 241, 247, 0) 40%),
+    var(--bg-0);
   overflow: hidden;
+}
+
+/* ---------- Brand header & co-brand footer ---------- */
+
+.brand-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 1.4rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.brand-logo {
+  height: 46px;
+}
+
+.brand-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  z-index: 10;
+  pointer-events: none;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.brand-footer .cobrand {
+  position: absolute;
+  right: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--navy-700);
 }
 
 .screen {
@@ -56,20 +125,27 @@ body {
 /* ---------- Start screen ---------- */
 
 .eyebrow {
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--sky-500);
 }
 
 h1 {
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--navy-900);
+}
+
+.hl {
+  color: var(--yellow-500);
 }
 
 .subtitle {
   max-width: 34rem;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--text-dim);
 }
 
@@ -77,18 +153,19 @@ h1 {
   margin-top: 1rem;
   padding: 0.9rem 2.6rem;
   font-size: 1rem;
-  font-weight: 600;
-  color: #0b0e14;
-  background: var(--text);
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--sky-500);
   border: none;
-  border-radius: 999px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.18);
+  background: #2b98cf;
+  box-shadow: var(--shadow-lift);
 }
 
 /* ---------- Video screen ---------- */
@@ -96,7 +173,7 @@ h1 {
 #screen-video video {
   height: min(68vh, 620px);
   border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-card);
   background: #000;
 }
 
@@ -138,8 +215,9 @@ h1 {
   height: 58px;
   font-size: 1.5rem;
   border-radius: 50%;
-  border: 1px solid var(--card-border);
-  background: var(--card);
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  box-shadow: var(--shadow-card);
   cursor: pointer;
   transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
 }
@@ -149,15 +227,15 @@ h1 {
 }
 
 .thumb.selected {
-  background: rgba(127, 227, 176, 0.18);
-  border-color: var(--listen);
+  background: var(--bg-tint-green);
+  border-color: var(--green-600);
 }
 
 /* ---------- Voice screen ---------- */
 
 #screen-voice {
   justify-content: space-between;
-  padding: 3.5rem 2rem 2.5rem;
+  padding: 4.6rem 2rem 3.2rem;
 }
 
 .voice-header {
@@ -167,7 +245,8 @@ h1 {
 }
 
 .voice-header .topic {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--navy-900);
 }
 
 .voice-header .status {
@@ -186,39 +265,77 @@ h1 {
   width: 100%;
 }
 
+/* Sparkle accents echoing the logo's stars (DESIGN.md §5) */
+
+.orb-stage::before,
+.orb-stage::after {
+  position: absolute;
+  color: var(--sky-500);
+  pointer-events: none;
+}
+
+.orb-stage::before {
+  content: "✦";
+  font-size: 1.5rem;
+  top: calc(50% - 138px);
+  left: calc(50% + 96px);
+}
+
+.orb-stage::after {
+  content: "✦";
+  font-size: 0.9rem;
+  top: calc(50% - 104px);
+  left: calc(50% + 134px);
+  color: var(--sky-300);
+}
+
+/* Brand-gradient ring (the screen's one gradient moment) around a
+   white/tinted core; app.js keeps driving the transform scaling. */
+
 .orb {
   position: relative;
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  background: radial-gradient(circle at 32% 30%, #dceaff 0%, #9cc2ff 32%, #4f86e8 68%, #2a4f9e 100%);
-  box-shadow:
-    0 0 60px var(--accent-soft),
-    0 0 140px var(--accent-soft);
+  background: var(--brand-gradient);
+  box-shadow: var(--shadow-lift);
   transition: background 0.6s ease, box-shadow 0.6s ease;
   will-change: transform;
 }
 
-.orb.listening {
-  background: radial-gradient(circle at 32% 30%, #e2fff0 0%, #a5ecc7 32%, #4ec98d 68%, #1f7a52 100%);
-  box-shadow:
-    0 0 60px var(--listen-soft),
-    0 0 140px var(--listen-soft);
+.orb::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #ffffff 0%, var(--bg-tint-blue) 62%, #DCEAF8 100%);
+  transition: background 0.6s ease;
 }
+
+.orb.listening {
+  background: var(--green-600);
+}
+
+.orb.listening::after {
+  background: radial-gradient(circle at 32% 30%, #ffffff 0%, var(--bg-tint-green) 62%, #D6EFE3 100%);
+}
+
+/* The old neon glow becomes a soft navy-tinted aura that still
+   scales with the audio level. */
 
 .orb-halo {
   position: absolute;
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  background: var(--accent-soft);
-  filter: blur(50px);
+  background: rgba(19, 42, 92, 0.10);
+  filter: blur(34px);
   transition: background 0.6s ease;
   will-change: transform;
 }
 
 .orb-halo.listening {
-  background: var(--listen-soft);
+  background: rgba(30, 158, 110, 0.14);
 }
 
 .qa-slot {
@@ -235,6 +352,7 @@ h1 {
   font-size: 1.35rem;
   line-height: 1.5;
   font-weight: 500;
+  color: var(--navy-900);
 }
 
 /* Analysis insight lines — streamed in one by one. */
@@ -259,11 +377,11 @@ h1 {
 
 .insights li.ok::before {
   content: "✓  ";
-  color: var(--listen);
+  color: var(--green-600);
 }
 
 .insights li.gap {
-  color: var(--warn);
+  color: var(--amber-700);
   font-weight: 600;
 }
 
@@ -279,7 +397,7 @@ h1 {
   height: 4px;
   margin-top: 0.4rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border);
   overflow: hidden;
 }
 
@@ -292,7 +410,7 @@ h1 {
   height: 100%;
   width: 40%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #4f86e8, #6ea8ff);
+  background: var(--brand-gradient);
   animation: genSlide 1s ease-in-out infinite;
 }
 
@@ -304,7 +422,7 @@ h1 {
 /* Acknowledgement beat */
 
 .voice-header .status.ack {
-  color: var(--listen);
+  color: var(--green-600);
   font-weight: 700;
 }
 
@@ -318,16 +436,16 @@ h1 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
+  background: #C9D4E3;
   transition: background 0.3s ease;
 }
 
 .progress .dot.current {
-  background: var(--text);
+  background: var(--navy-900);
 }
 
 .progress .dot.done {
-  background: var(--accent);
+  background: var(--sky-500);
 }
 
 /* ---------- End screen ---------- */
@@ -340,8 +458,8 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  background: rgba(127, 227, 176, 0.15);
-  color: var(--listen);
+  background: var(--bg-tint-green);
+  color: var(--green-600);
 }
 
 .topics {
@@ -354,11 +472,11 @@ h1 {
 
 .topics li.ok::before {
   content: "✓  ";
-  color: var(--listen);
+  color: var(--green-600);
 }
 
 .topics li.gap {
-  color: var(--warn);
+  color: var(--amber-700);
 }
 
 .topics li.gap::before {
@@ -374,11 +492,11 @@ h1 {
 /* ---------- Teacher dashboard ---------- */
 
 .dash-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 1.2rem 1.6rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-card);
 }
 
 .dash-table {
@@ -411,7 +529,7 @@ h1 {
 }
 
 .dash-table tr.highlight td {
-  background: rgba(110, 168, 255, 0.1);
+  background: var(--bg-tint-blue);
 }
 
 .dash-table tr.highlight td:first-child {
@@ -434,19 +552,20 @@ h1 {
 }
 
 .cell-dot.ok {
-  background: rgba(127, 227, 176, 0.15);
-  color: var(--listen);
+  background: var(--bg-tint-green);
+  color: var(--green-600);
 }
 
 .cell-dot.gap {
-  background: var(--warn-soft);
-  color: var(--warn);
+  background: rgba(245, 185, 15, 0.18);
+  color: var(--amber-700);
 }
 
 .dash-insight {
   max-width: 38rem;
-  color: var(--warn);
+  color: var(--amber-700);
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .dash-insight::before {
