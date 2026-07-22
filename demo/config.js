@@ -12,6 +12,34 @@ const DEMO_CONFIG = {
   // highlight word, per the brand headline pattern.
   topicHeadline: 'The <span class="hl">Tequila</span> Crisis.',
 
+  // ---------- 0. Class / topic picker ----------
+  // Two quick steps before the homework intro: pick a subject, then
+  // a topic. Only the scripted path (Historia → Tequila Crisis) is
+  // live; the other cards nudge and show the hint. Space auto-picks
+  // the live card, so the stage flow stays foolproof.
+  picker: {
+    subjects: {
+      eyebrow: "Your classes",
+      title: 'What are we <span class="hl">reviewing</span> today?',
+      hint: "This demo follows Historia — pick that one.",
+      items: [
+        { name: "Historia Económica", sub: "Prof. Emiliano", enabled: true },
+        { name: "Matemáticas", sub: "Prof. Rivas", enabled: false },
+        { name: "Ciencias Naturales", sub: "Prof. Ortega", enabled: false },
+      ],
+    },
+    topics: {
+      eyebrow: "Historia Económica",
+      title: 'Pick a <span class="hl">topic</span>.',
+      hint: "This demo follows the Tequila Crisis — pick that one.",
+      items: [
+        { name: "The Tequila Crisis", sub: "Homework review ready", enabled: true },
+        { name: "Import Substitution", sub: "Reviewed last week", enabled: false },
+        { name: "The Lost Decade", sub: "Reviewed last week", enabled: false },
+      ],
+    },
+  },
+
   // Shown on the start screen (the "homework starts with one or
   // two sentences" part of the flow).
   homeworkIntro:

@@ -1,6 +1,7 @@
 // ============================================================
 // Voice session demo — state machine + audio-reactive orb.
-// States: start → speaking(q) ⇄ listening(q) → ack(q) …
+// States: pick-subject → pick-topic → start
+//         → speaking(q) ⇄ listening(q) → ack(q) …
 //         → analyzing → generating → video → feedback → done → teacher
 // Space / → / PageDown advance · ← / PageUp go back · R restarts.
 // ============================================================
@@ -8,6 +9,7 @@
 const $ = (sel) => document.querySelector(sel);
 
 const screens = {
+  pick: $("#screen-pick"),
   start: $("#screen-start"),
   voice: $("#screen-voice"),
   video: $("#screen-video"),
@@ -117,6 +119,77 @@ function animate() {
 function show(name) {
   Object.values(screens).forEach((s) => s.classList.remove("active"));
   screens[name].classList.add("active");
+}
+
+// ---------- Class / topic picker ----------
+// Two quick steps before the homework intro. Only the scripted path
+// is live (enabled: true); the other cards nudge and show the hint.
+// Space auto-picks the live card so the stage flow stays foolproof.
+
+const pickHint = $("#pick-hint");
+let liveCard = null; // the enabled card of the current step
+
+function showPicker(step) {
+  clearTimers();
+  state = step === "subjects" ? "pick-subject" : "pick-topic";
+  const cfg = DEMO_CONFIG.picker[step];
+
+  $("#pick-eyebrow").textContent = cfg.eyebrow;
+  $("#pick-title").innerHTML = cfg.title;
+  pickHint.textContent = cfg.hint;
+  pickHint.classList.remove("visible");
+
+  const list = $("#pick-cards");
+  list.innerHTML = "";
+  liveCard = null;
+  cfg.items.forEach((item) => {
+    const li = document.createElement("li");
+    li.className = "pick-card" + (item.enabled ? "" : " demo");
+    const name = document.createElement("div");
+    name.className = "pick-name";
+    name.textContent = item.name;
+    li.appendChild(name);
+    if (item.sub) {
+      const sub = document.createElement("div");
+      sub.className = "pick-sub";
+      sub.textContent = item.sub;
+      li.appendChild(sub);
+    }
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (item.enabled) selectCard(li);
+      else nudge(li);
+    });
+    if (item.enabled) liveCard = li;
+    list.appendChild(li);
+  });
+
+  // Re-trigger the fade-in between the two steps.
+  screens.pick.classList.remove("active");
+  void screens.pick.offsetWidth;
+  show("pick");
+}
+
+// Highlight the card for a beat before moving on, so the choice reads.
+function selectCard(li) {
+  if (li.classList.contains("selected")) return;
+  li.classList.add("selected");
+  later(() => {
+    if (state === "pick-subject") showPicker("topics");
+    else if (state === "pick-topic") showStart();
+  }, 350);
+}
+
+function nudge(li) {
+  li.classList.add("nope");
+  pickHint.classList.add("visible");
+  setTimeout(() => li.classList.remove("nope"), 400);
+}
+
+function showStart() {
+  clearTimers();
+  state = "start";
+  show("start");
 }
 
 function begin() {
@@ -268,8 +341,7 @@ function restart() {
   genLoader.classList.remove("active");
   hideFeedback();
   qIndex = 0;
-  state = "start";
-  show("start");
+  showPicker("subjects");
 }
 
 function renderProgress() {
@@ -290,6 +362,11 @@ const ADVANCE_KEYS = ["Space", "Enter", "ArrowRight", "PageDown"];
 const BACK_KEYS = ["ArrowLeft", "PageUp"];
 
 function advance() {
+  // Space auto-picks the scripted card on the picker steps.
+  if (state === "pick-subject" || state === "pick-topic") {
+    if (liveCard) selectCard(liveCard);
+    return;
+  }
   if (state === "start") return begin();
   if (state === "speaking") {
     // Skip straight to listening mid-question if needed.
@@ -308,9 +385,11 @@ function advance() {
 // Step one beat backwards — the safety valve for an accidental
 // double-press on stage.
 function goBack() {
+  if (state === "pick-topic") return showPicker("subjects");
+  if (state === "start") return showPicker("topics");
   if (state === "speaking" || state === "listening" || state === "ack") {
     if (qIndex > 0) return askQuestion(qIndex - 1);
-    return restart();
+    return showStart();
   }
   if (state === "analyzing") return askQuestion(DEMO_CONFIG.questions.length - 1);
   // From the generating beat or the video, go back to the analysis
@@ -433,5 +512,5 @@ function hydrateTeacher() {
 }
 
 hydrate();
-show("start");
+showPicker("subjects");
 animate();

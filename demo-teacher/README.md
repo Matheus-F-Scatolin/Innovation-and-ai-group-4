@@ -18,7 +18,11 @@ Open **http://localhost:8001** in **Chrome** and allow microphone access
 
 ## Demo flow (Space bar drives everything)
 
-1. **Start screen** — "New homework review". `Space` (or click) to begin.
+1. **Class picker** — Prof. Emiliano's class groups. Only the scripted
+   class is live (**Grupo 5°B**); the other cards nudge with a hint if
+   clicked. `Space` auto-picks it. (The topic comes from the materials
+   uploaded next, so there's no topic step here.)
+2. **Start screen** — "New homework review". `Space` (or click) to begin.
 2. **Upload beat** — a drop zone. Each `Space` press "drops" the next
    pre-named file in with a short upload progress: the class recording
    (Clase 12, 42 min), the book chapter PDF, and the class slides.

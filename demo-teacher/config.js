@@ -14,6 +14,25 @@ const TEACHER_CONFIG = {
   group: "Grupo 5°B",
   students: 31,
 
+  // ---------- 0. Class picker ----------
+  // One quick step before the start screen: pick the class group.
+  // Only the scripted path (Grupo 5°B) is live; the other cards
+  // nudge and show the hint. Space auto-picks the live card, so
+  // the stage flow stays foolproof. The topic itself comes from
+  // the materials uploaded in the next beat.
+  picker: {
+    classes: {
+      eyebrow: "Your classes",
+      title: 'Which <span class="hl">class</span> are we working with?',
+      hint: "This demo follows Grupo 5°B — pick that one.",
+      items: [
+        { name: "Grupo 5°B", sub: "Historia Económica · 31 students", enabled: true },
+        { name: "Grupo 5°A", sub: "Historia Económica · 29 students", enabled: false },
+        { name: "Grupo 6°A", sub: "Historia Universal · 33 students", enabled: false },
+      ],
+    },
+  },
+
   // Shown on the start screen.
   intro:
     "Turn today's class into a homework review. Upload your class " +
