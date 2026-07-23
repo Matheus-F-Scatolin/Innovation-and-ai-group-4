@@ -289,7 +289,7 @@ function startVideo() {
   hideFeedback();
   show("video");
   video.currentTime = 0;
-  video.playbackRate = 1.5;
+  video.playbackRate = 1;
   video.play().catch(() => {});
 }
 
